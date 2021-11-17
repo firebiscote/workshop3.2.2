@@ -6,37 +6,16 @@ namespace workshop3._2._2
     {
         static void Main(string[] args)
         {
-            IEmploye newComptable = new Comptable();
-            newComptable.AfficherMission();
-        }
-    }
-
-    interface IEmploye
-    {
-        public void AfficherMission();
-    }
-
-    class Comptable : IEmploye 
-    {
-        void IEmploye.AfficherMission()
-        {
-            Console.WriteLine("Je suis un comptable !");
-        }
-    }
-
-    class Ingenieur : IEmploye
-    {
-        void IEmploye.AfficherMission()
-        {
-            Console.WriteLine("Je suis un ingénieur !");
-        }
-    }
-
-    class Directeur : IEmploye
-    {
-        void IEmploye.AfficherMission()
-        {
-            Console.WriteLine("Je suis un directeur !");
+            View view = new View();
+            Controller controller = new Controller();
+            Model model = new Model();
+            Data data = new Data();
+            view.Text = Console.ReadLine();
+            controller.String = view.Text;
+            data.String = controller.String;
+            data.StringUpper = model.Convert(data.String);
+            controller.StringUpper = data.StringUpper;
+            view.StringToShow = controller.StringUpper;
         }
     }
 }
