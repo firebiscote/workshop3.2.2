@@ -9,13 +9,10 @@ namespace workshop3._2._2
             View view = new View();
             Controller controller = new Controller();
             Model model = new Model();
-            Data data = new Data();
-            view.Text = Console.ReadLine();
-            controller.String = view.Text;
-            data.String = controller.String;
-            data.StringUpper = model.Convert(data.String);
-            controller.StringUpper = data.StringUpper;
-            view.StringToShow = controller.StringUpper;
+            view.Controller = controller;
+            controller.Model = model;
+            controller.View = view;
+            view.GetUserInputs();
         }
     }
 }

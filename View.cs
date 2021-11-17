@@ -6,22 +6,7 @@ namespace workshop3._2._2
 {
     class View
     {
-        private string text;
-        public string Text
-        {
-            get => text;
-            set
-            {
-                if (value.Length < 1 || value.Length > 8)
-                {
-                    Console.WriteLine("La chaine de caractères entrée n'est pas valide !");
-                    Text = Console.ReadLine();
-                }
-                else
-                    text = value;
-            }
-        }
-
+        public Controller Controller;
         private string stringToShow;
         public string StringToShow
         {
@@ -31,6 +16,29 @@ namespace workshop3._2._2
                 stringToShow = value;
                 Console.WriteLine(stringToShow);
             }
+        }
+
+        public void GetUserInputs()
+        {
+            checkString(Console.ReadLine());
+        }
+
+        private void checkString(string text)
+        {
+            if (isStringLenghtValid(text))
+                Controller.Process(text);
+            else
+                GetUserInputs();
+        }
+        
+        private bool isStringLenghtValid(string text)
+        {
+            return text.Length < 9 && text.Length > 0;
+        }
+
+        public void Update(string text)
+        {
+            Console.WriteLine(text);
         }
     }
 }

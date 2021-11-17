@@ -6,9 +6,17 @@ namespace workshop3._2._2
 {
     class Model
     {
-        public string Convert(string text)
+        private Data data;
+
+        public void StoreResult(Data data)
         {
-            return ToUpperCase(text);
+            this.data = data;
+            data.StringUpper = Convert();
+        }
+
+        private string Convert()
+        {
+            return ToUpperCase(data.String);
         }
 
         private string ToUpperCase(string text)
