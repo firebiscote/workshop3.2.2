@@ -6,7 +6,24 @@ namespace workshop3._2._2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Employe newComptable = new Comptable();
+            newComptable.Present();
+        }
+    }
+
+    class Employe
+    {
+        public virtual void Present()
+        {
+            Console.WriteLine("Je suis un employe !");
+        }
+    }
+
+    class Comptable : Employe 
+    {
+        public override void Present()
+        {
+            Console.WriteLine("Je suis un comptable !");
         }
     }
 }
