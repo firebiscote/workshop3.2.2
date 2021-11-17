@@ -6,24 +6,37 @@ namespace workshop3._2._2
     {
         static void Main(string[] args)
         {
-            Employe newComptable = new Comptable();
-            newComptable.Present();
+            IEmploye newComptable = new Comptable();
+            newComptable.AfficherMission();
         }
     }
 
-    class Employe
+    interface IEmploye
     {
-        public virtual void Present()
-        {
-            Console.WriteLine("Je suis un employe !");
-        }
+        public void AfficherMission();
     }
 
-    class Comptable : Employe 
+    class Comptable : IEmploye 
     {
-        public override void Present()
+        void IEmploye.AfficherMission()
         {
             Console.WriteLine("Je suis un comptable !");
+        }
+    }
+
+    class Ingenieur : IEmploye
+    {
+        void IEmploye.AfficherMission()
+        {
+            Console.WriteLine("Je suis un ingénieur !");
+        }
+    }
+
+    class Directeur : IEmploye
+    {
+        void IEmploye.AfficherMission()
+        {
+            Console.WriteLine("Je suis un directeur !");
         }
     }
 }
